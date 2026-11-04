@@ -97,16 +97,16 @@ class MainActivity : Activity() {
             webChromeClient = WebChromeClient()
             webViewClient = object : WebViewClient() {
                 override fun onPageStarted(view: WebView?, url: String?, favicon: android.graphics.Bitmap?) {
-                    progress.visibility = android.view.View.VISIBLE
+                    progress.setVisibility(android.view.View.VISIBLE)
                     status.text = "Connecting to router…"
                 }
                 override fun onPageFinished(view: WebView?, url: String?) {
-                    progress.visibility = android.view.View.GONE
+                    progress.setVisibility(android.view.View.GONE)
                     status.text = "Router page loaded. Sign in using your router’s admin credentials."
                 }
                 override fun onReceivedError(view: WebView?, request: android.webkit.WebResourceRequest?, error: android.webkit.WebResourceError?) {
                     if (request?.isForMainFrame == true) {
-                        progress.visibility = android.view.View.GONE
+                        progress.setVisibility(android.view.View.GONE)
                         status.text = "Can’t reach the router. Check Wi‑Fi and the address, then tap Open."
                     }
                 }
