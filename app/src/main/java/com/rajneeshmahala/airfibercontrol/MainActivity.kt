@@ -54,7 +54,7 @@ class MainActivity : Activity() {
 
         val row = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL; gravity = Gravity.CENTER_VERTICAL }
         address = EditText(this).apply {
-            singleLine = true
+            setSingleLine(true)
             textSize = 15f
             setText(prefs.getString("url", "http://192.168.2.1") ?: "http://192.168.2.1")
             hint = "http://192.168.2.1"
@@ -82,7 +82,7 @@ class MainActivity : Activity() {
         }
         root.addView(status)
         progress = ProgressBar(this, null, android.R.attr.progressBarStyleHorizontal).apply {
-            is indeterminate = true
+            isIndeterminate = true
             visibility = android.view.View.GONE
         }
         root.addView(progress, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, dp(3)))
